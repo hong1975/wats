@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0D1464E-9506-4CF1-9F30-11F89830DC52}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WatsEmiReportTool</RootNamespace>
+    <AssemblyName>WatsEmiReportTool</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>report.ico</ApplicationIcon>
+    <Win32Resource>
+    </Win32Resource>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Office, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\WatsEMIAnalyzer\EMI\EMIFileData.cs">
+      <Link>References\EMIFileData.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEMIAnalyzer\EMI\EMIFileParser.cs">
+      <Link>References\EMIFileParser.cs</Link>
+    </Compile>
+    <Compile Include="BitMapInfo.cs" />
+    <Compile Include="ChannelPowerSpectrum.cs" />
+    <Compile Include="DirectionMasker.cs" />
+    <Compile Include="EMISingleSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMISingleSelectForm.Designer.cs">
+      <DependentUpon>EMISingleSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrequencyRange.cs" />
+    <Compile Include="Link.cs" />
+    <Compile Include="ChannelMatcher.cs" />
+    <Compile Include="ChannelPower.cs" />
+    <Compile Include="ChannelSetting.cs" />
+    <Compile Include="ChannelSettingReader.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="EmiAzimuthData.cs" />
+    <Compile Include="EMIDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMIDataForm.Designer.cs">
+      <DependentUpon>EMIDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChannelSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChannelSettingForm.Designer.cs">
+      <DependentUpon>ChannelSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EMIPairSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMIPairSelectForm.Designer.cs">
+      <DependentUpon>EMIPairSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EquimentParameter.cs" />
+    <Compile Include="EquipmentParameterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EquipmentParameterForm.Designer.cs">
+      <DependentUpon>EquipmentParameterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentParameterReader.cs" />
+    <Compile Include="ExcelExportSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExcelExportSettingForm.Designer.cs">
+      <DependentUpon>ExcelExportSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InvalidLinkConfigurationException.cs" />
+    <Compile Include="JWD.cs" />
+    <Compile Include="LimitSetting.cs" />
+    <Compile Include="LimitSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LimitSettingForm.Designer.cs">
+      <DependentUpon>LimitSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinkCombination.cs" />
+    <Compile Include="LinkConfiguration.cs" />
+    <Compile Include="LinkConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinkConfigurationForm.Designer.cs">
+      <DependentUpon>LinkConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinkConfigurationReader.cs" />
+    <Compile Include="LinkFrequencyCountMap.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelAppKiller.cs" />
+    <Compile Include="ExportStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportStatusForm.Designer.cs">
+      <DependentUpon>ExportStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IniFile.cs" />
+    <Compile Include="InvalidChannelSettingException.cs" />
+    <Compile Include="MalaysiaMaxisReportPictureCreator.cs.cs" />
+    <Compile Include="MalaysiaReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MalaysiaReportForm.Designer.cs">
+      <DependentUpon>MalaysiaReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MalaysiaReportPictureCreator.cs" />
+    <Compile Include="ManualConfigConstants.cs" />
+    <Compile Include="Marker.cs" />
+    <Compile Include="MalaysiaMaxisReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MalaysiaMaxisReportForm.Designer.cs">
+      <DependentUpon>MalaysiaMaxisReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PairReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PairReportForm.Designer.cs">
+      <DependentUpon>PairReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParserState.cs" />
+    <Compile Include="PermutationAndCombination.cs" />
+    <Compile Include="PictureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PictureForm.Designer.cs">
+      <DependentUpon>PictureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EMIDataForm.resx">
+      <DependentUpon>EMIDataForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChannelSettingForm.resx">
+      <DependentUpon>ChannelSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMIPairSelectForm.resx">
+      <DependentUpon>EMIPairSelectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMISingleSelectForm.resx">
+      <DependentUpon>EMISingleSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EquipmentParameterForm.resx">
+      <DependentUpon>EquipmentParameterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExcelExportSettingForm.resx">
+      <DependentUpon>ExcelExportSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportStatusForm.resx">
+      <DependentUpon>ExportStatusForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LimitSettingForm.resx">
+      <DependentUpon>LimitSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkConfigurationForm.resx">
+      <DependentUpon>LinkConfigurationForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MalaysiaReportForm.resx">
+      <DependentUpon>MalaysiaReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MalaysiaMaxisReportForm.resx">
+      <DependentUpon>MalaysiaMaxisReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PairReportForm.resx">
+      <DependentUpon>PairReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PictureForm.resx">
+      <DependentUpon>PictureForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VenezuelaReportForm.resx">
+      <DependentUpon>VenezuelaReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WordExportSettingForm.resx">
+      <DependentUpon>WordExportSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPictureCreator.cs" />
+    <Compile Include="ReportPictureInfo.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="VenezuelaReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VenezuelaReportForm.Designer.cs">
+      <DependentUpon>VenezuelaReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VenezuelaReportPictureCreator.cs" />
+    <Compile Include="WatsEmiData.cs" />
+    <Compile Include="WatsEmiDataManager.cs" />
+    <Compile Include="WatsEmiSample.cs" />
+    <Compile Include="WordExportSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WordExportSettingForm.Designer.cs">
+      <DependentUpon>WordExportSettingForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="report.ico" />
+    <None Include="resources\201107120834052.jpg" />
+    <None Include="resources\Untitled.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
