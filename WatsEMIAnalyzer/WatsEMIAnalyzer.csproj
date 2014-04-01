@@ -1,0 +1,671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1439A175-7E2A-4686-9D6B-1BD974B9F7B3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WatsEMIAnalyzer</RootNamespace>
+    <AssemblyName>WatsEMIAnalyzer</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataGridViewCustomColumn, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\DataGridViewCustomColumn.dll</HintPath>
+    </Reference>
+    <Reference Include="LaMarvin.Windows.Forms.ColorPicker, Version=1.1.81.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\LaMarvin.Windows.Forms.ColorPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Office, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\System.Data.SQLite.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.6.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\WatsEmiReportTool\BitMapInfo.cs">
+      <Link>References\BitMapInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\ChannelPower.cs">
+      <Link>References\ChannelPower.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\ChannelSetting.cs">
+      <Link>References\ChannelSetting.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\ChannelSettingReader.cs">
+      <Link>References\ChannelSettingReader.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\EquimentParameter.cs">
+      <Link>References\EquimentParameter.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\EquipmentParameterReader.cs">
+      <Link>References\EquipmentParameterReader.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\ExcelAppKiller.cs">
+      <Link>References\ExcelAppKiller.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\FrequencyRange.cs">
+      <Link>References\FrequencyRange.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\InvalidChannelSettingException.cs">
+      <Link>References\InvalidChannelSettingException.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\InvalidLinkConfigurationException.cs">
+      <Link>References\InvalidLinkConfigurationException.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\LimitSetting.cs">
+      <Link>References\LimitSetting.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\LinkConfiguration.cs">
+      <Link>References\LinkConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\LinkConfigurationReader.cs">
+      <Link>References\LinkConfigurationReader.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\Marker.cs">
+      <Link>References\Marker.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\ReportPictureCreator.cs">
+      <Link>References\ReportPictureCreator.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\Utility.cs">
+      <Link>References\Utility.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\WatsEmiData.cs">
+      <Link>References\WatsEmiData.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\WatsEmiDataManager.cs">
+      <Link>References\WatsEmiDataManager.cs</Link>
+    </Compile>
+    <Compile Include="..\WatsEmiReportTool\WatsEmiSample.cs">
+      <Link>References\WatsEmiSample.cs</Link>
+    </Compile>
+    <Compile Include="AddPowerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPowerForm.Designer.cs">
+      <DependentUpon>AddPowerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRegionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRegionForm.Designer.cs">
+      <DependentUpon>AddRegionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSiteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSiteForm.Designer.cs">
+      <DependentUpon>AddSiteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapViewForm.Designer.cs">
+      <DependentUpon>MapViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveSiteSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveSiteSelectForm.Designer.cs">
+      <DependentUpon>RemoveSiteSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewForm.Designer.cs">
+      <DependentUpon>ReportViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssignUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignUserForm.Designer.cs">
+      <DependentUpon>AssignUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bindings\AddProjectResult.cs" />
+    <Compile Include="Bindings\ErrorMessage.cs" />
+    <Compile Include="Bindings\Event.cs" />
+    <Compile Include="Bindings\Events.cs" />
+    <Compile Include="Bindings\FileDescription.cs" />
+    <Compile Include="Bindings\FileList.cs" />
+    <Compile Include="Bindings\GlobalRegion.cs" />
+    <Compile Include="Bindings\Task.cs" />
+    <Compile Include="Bindings\Tasks.cs" />
+    <Compile Include="Bindings\Report.cs" />
+    <Compile Include="Bindings\Reports.cs" />
+    <Compile Include="Bindings\SubRegion.cs" />
+    <Compile Include="Bindings\Site.cs" />
+    <Compile Include="Bindings\Sites.cs" />
+    <Compile Include="Bindings\UpdateTaskRequest.cs" />
+    <Compile Include="Bindings\UpdateTaskType.cs" />
+    <Compile Include="Bindings\UpdateRegionRequest.cs" />
+    <Compile Include="Bindings\UpdateRegionResult.cs" />
+    <Compile Include="Bindings\UpdateRegionType.cs" />
+    <Compile Include="Bindings\UpdateUserType.cs" />
+    <Compile Include="Bindings\User.cs" />
+    <Compile Include="Bindings\Users.cs" />
+    <Compile Include="ChannelSettingDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChannelSettingDetailForm.Designer.cs">
+      <DependentUpon>ChannelSettingDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChannelSettingManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChannelSettingManagementForm.Designer.cs">
+      <DependentUpon>ChannelSettingManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorPickerColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ColorSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorSettingForm.Designer.cs">
+      <DependentUpon>ColorSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectivityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectivityForm.Designer.cs">
+      <DependentUpon>ConnectivityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataCenter.cs" />
+    <Compile Include="EMIDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMIDetailForm.Designer.cs">
+      <DependentUpon>EMIDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EMI\EMIFileData.cs" />
+    <Compile Include="EMI\EMIFileParser.cs" />
+    <Compile Include="EquipmentParameterDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EquipmentParameterDetailForm.Designer.cs">
+      <DependentUpon>EquipmentParameterDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EMIFileUploadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMIFileUploadForm.Designer.cs">
+      <DependentUpon>EMIFileUploadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentParameterManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EquipmentParameterManagementForm.Designer.cs">
+      <DependentUpon>EquipmentParameterManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExportSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportSettingForm.Designer.cs">
+      <DependentUpon>ExportSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExportStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportStatusForm.Designer.cs">
+      <DependentUpon>ExportStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IExport.cs" />
+    <Compile Include="InputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog.Designer.cs">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinkConfigurationDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinkConfigurationDetailForm.Designer.cs">
+      <DependentUpon>LinkConfigurationDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinkConfigurationManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinkConfigurationManagementForm.Designer.cs">
+      <DependentUpon>LinkConfigurationManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadDataForm.Designer.cs">
+      <DependentUpon>LoadDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AnalysisMapViewModel.cs" />
+    <Compile Include="Model\AnalysisModel.cs" />
+    <Compile Include="Model\AnalysisReportViewModel.cs" />
+    <Compile Include="Model\AnalysisTableViewModel.cs" />
+    <Compile Include="Model\ChannelModel.cs" />
+    <Compile Include="Model\EMIFileModel.cs" />
+    <Compile Include="Model\EquipmentModel.cs" />
+    <Compile Include="Model\LinkModel.cs" />
+    <Compile Include="Model\MapModel.cs" />
+    <Compile Include="Model\TaskModel.cs" />
+    <Compile Include="Model\SettingsModel.cs" />
+    <Compile Include="Model\SiteModel.cs" />
+    <Compile Include="Model\SiteRegionModel.cs" />
+    <Compile Include="Model\SitesModel.cs" />
+    <Compile Include="Model\UsersModel.cs" />
+    <Compile Include="MoveTaskAlertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveTaskAlertForm.Designer.cs">
+      <DependentUpon>MoveTaskAlertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewTaskForm.Designer.cs">
+      <DependentUpon>NewTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PictureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PictureForm.Designer.cs">
+      <DependentUpon>PictureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HTTP\HTTPAgent.cs" />
+    <Compile Include="IniFile.cs" />
+    <Compile Include="LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIForm.Designer.cs">
+      <DependentUpon>MDIForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="PasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordForm.Designer.cs">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="TaskReportListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskReportListForm.Designer.cs">
+      <DependentUpon>TaskReportListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddPowerForm.resx">
+      <DependentUpon>AddPowerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRegionForm.resx">
+      <DependentUpon>AddRegionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSiteForm.resx">
+      <DependentUpon>AddSiteForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapViewForm.resx">
+      <DependentUpon>MapViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveSiteSelectForm.resx">
+      <DependentUpon>RemoveSiteSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewForm.resx">
+      <DependentUpon>ReportViewForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssignUserForm.resx">
+      <DependentUpon>AssignUserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChannelSettingDetailForm.resx">
+      <DependentUpon>ChannelSettingDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChannelSettingManagementForm.resx">
+      <DependentUpon>ChannelSettingManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorSettingForm.resx">
+      <DependentUpon>ColorSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectivityForm.resx">
+      <DependentUpon>ConnectivityForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMIDetailForm.resx">
+      <DependentUpon>EMIDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EquipmentParameterDetailForm.resx">
+      <DependentUpon>EquipmentParameterDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMIFileUploadForm.resx">
+      <DependentUpon>EMIFileUploadForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EquipmentParameterManagementForm.resx">
+      <DependentUpon>EquipmentParameterManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportSettingForm.resx">
+      <DependentUpon>ExportSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportStatusForm.resx">
+      <DependentUpon>ExportStatusForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog.resx">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkConfigurationDetailForm.resx">
+      <DependentUpon>LinkConfigurationDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkConfigurationManagementForm.resx">
+      <DependentUpon>LinkConfigurationManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadDataForm.resx">
+      <DependentUpon>LoadDataForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIForm.resx">
+      <DependentUpon>MDIForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveTaskAlertForm.resx">
+      <DependentUpon>MoveTaskAlertForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordForm.resx">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewTaskForm.resx">
+      <DependentUpon>NewTaskForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PictureForm.resx">
+      <DependentUpon>PictureForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskReportListForm.resx">
+      <DependentUpon>TaskReportListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RenameForm.resx">
+      <DependentUpon>RenameForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScanForm.resx">
+      <DependentUpon>ScanForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScanProgressForm.resx">
+      <DependentUpon>ScanProgressForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiteDetailForm.resx">
+      <DependentUpon>SiteDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiteManagementForm.resx">
+      <DependentUpon>SiteManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyncForm.resx">
+      <DependentUpon>SyncForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableViewForm.resx">
+      <DependentUpon>TableViewForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestEMIParseForm.resx">
+      <DependentUpon>TestEMIParseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadEMIProgressForm.resx">
+      <DependentUpon>UploadEMIProgressForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDetailForm.resx">
+      <DependentUpon>UserDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementForm.resx">
+      <DependentUpon>UserManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkspaceForm.resx">
+      <DependentUpon>WorkspaceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="HTTP\HTTPRequest.cs" />
+    <Compile Include="HTTP\HttpRequestResultHandler.cs" />
+    <Compile Include="RenameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RenameForm.Designer.cs">
+      <DependentUpon>RenameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScanForm.Designer.cs">
+      <DependentUpon>ScanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScanProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScanProgressForm.Designer.cs">
+      <DependentUpon>ScanProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SiteDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiteDetailForm.Designer.cs">
+      <DependentUpon>SiteDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SiteNodeListSorter.cs" />
+    <Compile Include="SiteListReader.cs" />
+    <Compile Include="SiteManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiteManagementForm.Designer.cs">
+      <DependentUpon>SiteManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SyncForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SyncForm.Designer.cs">
+      <DependentUpon>SyncForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableViewForm.Designer.cs">
+      <DependentUpon>TableViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Task.cs" />
+    <Compile Include="TestEMIParseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestEMIParseForm.Designer.cs">
+      <DependentUpon>TestEMIParseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UploadEMIProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadEMIProgressForm.Designer.cs">
+      <DependentUpon>UploadEMIProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UploadFileData.cs" />
+    <Compile Include="UserDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDetailForm.Designer.cs">
+      <DependentUpon>UserDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagementForm.Designer.cs">
+      <DependentUpon>UserManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+    <Compile Include="WorkspaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkspaceForm.Designer.cs">
+      <DependentUpon>WorkspaceForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.ico" />
+    <None Include="Resources\blank.jpg" />
+    <Content Include="Resources\Both.bmp" />
+    <Content Include="Resources\Filter.bmp" />
+    <Content Include="Resources\Horizontal.bmp" />
+    <None Include="Resources\test.jpg" />
+    <Content Include="Resources\UnFilter.bmp" />
+    <Content Include="Resources\Vertical.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxMapXLib">
+      <Guid>{E760686B-BC9E-4802-9ECF-175FDF4062CE}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MapXLib">
+      <Guid>{E760686B-BC9E-4802-9ECF-175FDF4062CE}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DB\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

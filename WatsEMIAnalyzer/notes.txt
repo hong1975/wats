@@ -1,0 +1,5 @@
+参照 参考资料 链接
+MySQL的一个系统参数：max_allowed_packet，其默认值为1048576(1M)，
+
+查询：show VARIABLES like '%max_allowed_packet%';
+修改此变量的值：MySQL安装目录下的my.ini文件中的[mysqld]段中的”max_allowed_packet = 1M”，如更改为4M 保存，重起MySQL服务。
