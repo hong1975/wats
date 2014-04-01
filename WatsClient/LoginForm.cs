@@ -36,7 +36,7 @@ namespace WatsClient
 
             Client.AuthUser = UsernameEditor.Text.Trim();
             Client.AuthPass = PasswordEditor.Text;
-            Client.BaseUrl = "http://localhost:8080/wats";
+            Client.BaseUrl = "http://localhost:8080/emi";
 
             Client.OnLoginResult += new Client.LoginResult(Client_OnLoginResult);
             Client.LogIn();
@@ -51,14 +51,15 @@ namespace WatsClient
                 EnableLogin(true);
                 if (statusCode == HttpStatusCode.OK)
                 {
-                    if (self.locked)
+                    if (self.Locked)
                     {
                         MessageBox.Show("User '" + self + "' was locked, please contact administrator !");
                     }
                     else
                     {
                         this.Hide();
-                        MainForm mainForm = new MainForm(self);
+                        DataCenter.MySelf = self;
+                        MainForm mainForm = new MainForm();
                         mainForm.Show();
                     }
                 }

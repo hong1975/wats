@@ -41,8 +41,11 @@ namespace WatsClient
         {
             mWorkspaceRootNode = WorkspaceTreeView.Nodes.Add("Workspace");
 
-            mAdministrationNode = mWorkspaceRootNode.Nodes.Add("Administration");
-            mUsersAndLicensingNode = mAdministrationNode.Nodes.Add("Users & Licensing");
+            if (Constants.ROLE_ADMIN.Equals(DataCenter.MySelf.Role))
+            {
+                mAdministrationNode = mWorkspaceRootNode.Nodes.Add("Administration");
+                mUsersAndLicensingNode = mAdministrationNode.Nodes.Add("Users & Licensing");
+            }
 
             mSettingFilesNode = mWorkspaceRootNode.Nodes.Add("Settings File");
             mColorSettingNode = mSettingFilesNode.Nodes.Add("Color");

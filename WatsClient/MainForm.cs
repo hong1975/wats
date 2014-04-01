@@ -14,10 +14,6 @@ namespace WatsClient
 {
     public partial class MainForm : Form
     {
-        private static MainForm singltone;
-
-        private User mSelf;
-
         public WorkspaceForm mWorkspaceForm;
         public UserForm mUserForm;
         public ColorSettingForm mColorSettingForm;
@@ -25,15 +21,8 @@ namespace WatsClient
         public LinkConfigurationForm mLinkConfigurationForm;
         public EquipmentParameterForm mEquipmentParameterForm;
 
-        public static MainForm Instance
+        public MainForm()
         {
-            get { return singltone; }
-        }
-
-        public MainForm(User self)
-        {
-            mSelf = self;
-            singltone = this;
             InitializeComponent();
         }
 
@@ -47,11 +36,14 @@ namespace WatsClient
             mEquipmentParameterForm = new EquipmentParameterForm();
 
             mWorkspaceForm.Show(MainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
+
+            /*
             mUserForm.Show(MainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
             mColorSettingForm.Show(MainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
             mChannelSettingForm.Show(MainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
             mLinkConfigurationForm.Show(MainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
             mEquipmentParameterForm.Show(MainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+            */ 
         }
     }
 }

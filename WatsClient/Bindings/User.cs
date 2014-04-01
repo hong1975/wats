@@ -7,12 +7,10 @@ namespace WatsClient.Bindings
 {
     public class User
     {
-        public string userId { get; set; }
-        
-        public string ha1 { get; set; }
-        
-        public string role { get; set; }
-        
-        public bool locked { get; set; }
+        public long ID { get; set; }
+        public string UserId { get; set; }
+        public string HA1 { get; set; }
+        public string Role { get; set; }
+        public bool Locked { get; set; }
     }
 }

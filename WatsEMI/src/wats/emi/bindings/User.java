@@ -30,7 +30,7 @@ public class User implements Serializable {
     	
     }
 
-    @XmlElement(name = "id")
+    @XmlElement(name = "ID")
     public long getId() {
         return id;
     }
@@ -39,22 +39,22 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    @XmlElement(name = "userId")
+    @XmlElement(name = "UserID")
 	public String getUserId() {
 		return userId;
 	}
 	
-    @XmlElement(name = "ha1")
+    @XmlElement(name = "HA1")
 	public String getHa1() {
 		return ha1;
 	}
 	
-    @XmlElement(name = "role")
+    @XmlElement(name = "Role")
 	public String getRole() {
 		return role;
 	}
     
-    @XmlElement(name = "locked")
+    @XmlElement(name = "Locked")
 	public boolean isLocked() {
 		return locked;
 	}
