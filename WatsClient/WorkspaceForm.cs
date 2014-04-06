@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WatsClient.Administration;
+using WatsClient.Settings;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace WatsClient
 {
     public partial class WorkspaceForm : WeifenLuo.WinFormsUI.Docking.DockContent
     {
+        private DockPanel mDockPanel;
+
         private TreeNode mWorkspaceRootNode;
 
         //Administration
@@ -32,8 +36,9 @@ namespace WatsClient
         //Task
         private TreeNode mTasksNode;
 
-        public WorkspaceForm()
+        public WorkspaceForm(DockPanel dockPanel)
         {
+            mDockPanel = dockPanel;
             InitializeComponent();
         }
 
@@ -102,17 +107,17 @@ namespace WatsClient
             {
                 if (curNode == mUsersAndLicensingNode)
                 {
-                    if (!MainForm.Instance.mUserForm.Visible)
-                        MainForm.Instance.mUserForm.Show();
+                    if (!UserForm.Instance.Visible)
+                        UserForm.Instance.Show(mDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
                     else
-                        MainForm.Instance.mUserForm.Focus();
+                        UserForm.Instance.Focus();
                 }
                 else if (curNode == mColorSettingNode)
                 {
-                    if (!MainForm.Instance.mColorSettingForm.Visible)
-                        MainForm.Instance.mColorSettingForm.Show();
+                    if (!ColorSettingForm.Instance.Visible)
+                        ColorSettingForm.Instance.Show(mDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
                     else
-                        MainForm.Instance.mColorSettingForm.Focus();
+                        ColorSettingForm.Instance.Focus();
                 }
 
                 /*

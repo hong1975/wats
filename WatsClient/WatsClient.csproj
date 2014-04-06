@@ -39,6 +39,10 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -68,15 +72,17 @@
     <Compile Include="Administration\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bindings\ResourceList.cs" />
     <Compile Include="Bindings\User.cs" />
     <Compile Include="Bindings\Users.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DataCenter.cs" />
-    <Compile Include="LoadingForm.cs">
+    <Compile Include="LocalStorage.cs" />
+    <Compile Include="SyncForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoadingForm.Designer.cs">
-      <DependentUpon>LoadingForm.cs</DependentUpon>
+    <Compile Include="SyncForm.Designer.cs">
+      <DependentUpon>SyncForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -98,8 +104,8 @@
     <EmbeddedResource Include="Administration\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoadingForm.resx">
-      <DependentUpon>LoadingForm.cs</DependentUpon>
+    <EmbeddedResource Include="SyncForm.resx">
+      <DependentUpon>SyncForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -181,6 +187,8 @@
     <Compile Include="Settings\SiteForm.Designer.cs">
       <DependentUpon>SiteForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SyncType.cs" />
+    <Compile Include="Utility\SystemHelper.cs" />
     <Compile Include="WorkspaceForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -11,9 +11,22 @@ namespace WatsClient.Administration
 {
     public partial class UserForm : WeifenLuo.WinFormsUI.Docking.DockContent
     {
+        private static UserForm mUserForm;
         private TreeNode mLicenseRootNode;
 
-        public UserForm()
+        public static UserForm Instance
+        {
+            get 
+            {
+                if (mUserForm == null)
+                    mUserForm = new UserForm();
+
+                return mUserForm;
+            }
+        
+        }
+
+        private UserForm()
         {
             InitializeComponent();
         }

@@ -14,12 +14,14 @@ namespace WatsClient
 {
     public partial class MainForm : Form
     {
-        public WorkspaceForm mWorkspaceForm;
+        private WorkspaceForm mWorkspaceForm;
+        /*
         public UserForm mUserForm;
         public ColorSettingForm mColorSettingForm;
         public ChannelSettingForm mChannelSettingForm;
         public LinkConfigurationForm mLinkConfigurationForm;
         public EquipmentParameterForm mEquipmentParameterForm;
+        */
 
         public MainForm()
         {
@@ -28,13 +30,7 @@ namespace WatsClient
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            mWorkspaceForm = new WorkspaceForm();
-            mUserForm = new UserForm();
-            mColorSettingForm = new ColorSettingForm();
-            mChannelSettingForm = new ChannelSettingForm();
-            mLinkConfigurationForm = new LinkConfigurationForm();
-            mEquipmentParameterForm = new EquipmentParameterForm();
-
+            mWorkspaceForm = new WorkspaceForm(MainDockPanel);
             mWorkspaceForm.Show(MainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
 
             /*

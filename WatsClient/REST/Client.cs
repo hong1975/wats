@@ -19,8 +19,11 @@ namespace WatsClient.REST
         public delegate void LoginResult(HttpStatusCode statusCode, User self);
         public static event LoginResult OnLoginResult;
 
-        public delegate void GetAllUsersResult(HttpStatusCode statusCode, Users self);
+        public delegate void GetAllUsersResult(HttpStatusCode statusCode, Users users);
         public static event GetAllUsersResult OnGetAllUsersResult;
+
+        public delegate void GetResourceListResult(HttpStatusCode statusCode, ResourceList resourceList);
+        public static event GetResourceListResult OnGetResourceListResult;
 
         public static void LogIn()
         {
@@ -59,6 +62,23 @@ namespace WatsClient.REST
                 if (OnGetAllUsersResult != null)
                 {
                     OnGetAllUsersResult(response.StatusCode, response.Data);
+                }
+
+            }).Start();
+        }
+
+        public static void GetResourceList()
+        {
+            new Thread(delegate()
+            {
+                RestRequest request = new RestRequest();
+                request.Method = Method.GET;
+                request.Resource = "resource";
+
+                IRestResponse<ResourceList> response = Execute<ResourceList>(request);
+                if (OnGetResourceListResult != null)
+                {
+                    OnGetResourceListResult(response.StatusCode, response.Data);
                 }
 
             }).Start();

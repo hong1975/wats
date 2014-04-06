@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatsClient", "WatsClient.csproj", "{B37DCD6C-0CBF-4432-96A3-BD49ECB68F52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatsEMIAnalyzer", "..\WatsEMIAnalyzer\WatsEMIAnalyzer.csproj", "{1439A175-7E2A-4686-9D6B-1BD974B9F7B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B37DCD6C-0CBF-4432-96A3-BD49ECB68F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B37DCD6C-0CBF-4432-96A3-BD49ECB68F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B37DCD6C-0CBF-4432-96A3-BD49ECB68F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B37DCD6C-0CBF-4432-96A3-BD49ECB68F52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1439A175-7E2A-4686-9D6B-1BD974B9F7B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1439A175-7E2A-4686-9D6B-1BD974B9F7B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1439A175-7E2A-4686-9D6B-1BD974B9F7B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1439A175-7E2A-4686-9D6B-1BD974B9F7B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
